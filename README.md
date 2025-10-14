@@ -1,17 +1,17 @@
-The Bridge is a plug-in that converts the invocation of specific plug-in points to callback functions. These can greatly help when wrapping the EwE engine in a console application, for instance.
+Its plug-in structure has proven an invaluable asset for extending and customizing the functionality of the Ecopath with Ecosim food web approach. At the time of writing (2025), the plug-in structure offers a much more versatile method to interact with - and to intervene in - the EwE execution than via the EwE API. The downside is that plug-ins execute within the EwE flow, and their capabilities cannot be harnassed when using the EwE API in a scripted environment.
 
-For example:
+The Bridge plug-in was developed to expose the capabilities offered by plug-ins to scripts that use the EwE API. IT's quite simple actually: the bridge is a plug-in that invokes a user-designated callback function, as follows:
 
     internal class cEcosimModifier : cRuntimeModifier
     {
         public cEcosimModifier(cCore core, cEwEConfiguration config, cEcosimRunInstructions runmodel) : base(core, "ecosim", config, runmodel)
         {
-            // Create a plug-in bridge to be able to intervene into the
-            // running Ecosim model during time stepping
+            // Find the bridge plug-in
             IPlugin? pi = GetPlugin(typeof(cEcosimCallbackPluginPoint));
+            // Got it?
             if (pi != null)
             {
-                // Pipe all ecosim plug-in points to a local callback function
+                // #es: pipe all ecosim plug-in points to a local callback function. Yay.
                 cEcosimCallbackPluginPoint ppt = (cEcosimCallbackPluginPoint)pi;
                 ppt.BridgeCallback = BridgeCallback;
             }
