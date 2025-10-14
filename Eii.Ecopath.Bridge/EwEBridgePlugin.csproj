@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>Eii.Ecopath.Bridge</PackageId>
+    <Version>1.0.2</Version>
+    <Authors>EII</Authors>
+    <Description>Ecopath bridge</Description>
+    <Title>The Plugin Bridge for Ecopath</Title>
+    <PackageProjectUrl>https://github.com/Official-EwE/Eii.Ecopath.Bridge</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>$(Project URL)</RepositoryUrl>
+    <PackageReleaseNotes>Updated readme</PackageReleaseNotes>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>True</IncludeSymbols>
+    <Company>EII</Company>
+    <PackageIcon>EII_plain_128x128.png</PackageIcon>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="True" PackagePath="\" />
+    <None Include="..\EII_plain_128x128.png" Pack="True" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Eii.Ecopath.EwECore" Version="6.7.2" />
+    <PackageReference Include="Eii.Ecopath.EwEPlugin" Version="6.7.2" />
+  </ItemGroup>
+
+</Project>
