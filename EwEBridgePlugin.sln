@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.0.11109.219 d18.0-oob
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EwEBridgePlugin", "EwEBridgePlugin.csproj", "{DCCEF082-6FFD-7D46-2C5D-BFA54D49DFAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EwEBridgePlugin", "Eii.Ecopath.Bridge\EwEBridgePlugin.csproj", "{B1781851-ED63-CF05-4E3F-C8FCE061C578}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		EII_plain_128x128.png = EII_plain_128x128.png
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +19,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DCCEF082-6FFD-7D46-2C5D-BFA54D49DFAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCCEF082-6FFD-7D46-2C5D-BFA54D49DFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCCEF082-6FFD-7D46-2C5D-BFA54D49DFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCCEF082-6FFD-7D46-2C5D-BFA54D49DFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1781851-ED63-CF05-4E3F-C8FCE061C578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1781851-ED63-CF05-4E3F-C8FCE061C578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1781851-ED63-CF05-4E3F-C8FCE061C578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1781851-ED63-CF05-4E3F-C8FCE061C578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
