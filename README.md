@@ -49,4 +49,3 @@ The Bridge plug-in was developed to expose the capabilities offered by plug-ins 
         }
     }
 }
-x
