@@ -1,0 +1,15 @@
+name: Release NuGet Package
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use custom NuGet release action
+        uses: Official-EwE/Eii.GithubActions/ReleaseNuGetPackageNet80@master    # can also be ReleaseNuGetPackageNet80@v5
+        with:
+          gh-packages-token: ${{ secrets.GH_PACKAGES_TOKEN }}

@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Eii.Ecopath.Bridge</PackageId>
-    <Version>1.0.2</Version>
     <Authors>EII</Authors>
     <Description>Ecopath bridge</Description>
     <Title>The Plugin Bridge for Ecopath</Title>
@@ -27,8 +26,7 @@
     <None Include="..\EII_plain_128x128.png" Pack="True" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Eii.Ecopath.EwECore" Version="6.7.2" />
-    <PackageReference Include="Eii.Ecopath.EwEPlugin" Version="6.7.2" />
+    <PackageReference Include="Eii.Ecopath.EwECore" Version="6.7.5" />
   </ItemGroup>
 
 </Project>
