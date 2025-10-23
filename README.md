@@ -47,5 +47,14 @@ The Bridge plug-in was developed to expose the capabilities offered by plug-ins 
                 this.RunSuccess &= this.Apply(iTime);
             }
         }
+
+        public IPlugin? GetPlugin(Type t)
+        {
+            cPluginManager pm = this.Core.PluginManager;
+            List<IPlugin> plugins = (List<IPlugin>)pm.GetPlugins(t);
+            if (plugins.Count > 0)
+                return plugins[0];
+            return null;
+        }
     }
 }
