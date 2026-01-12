@@ -1,4 +1,5 @@
-﻿using EwEPlugin;
+﻿using EwECore.Plugins;
+using EwECore.Plugins.Ecospace;
 
 namespace EwEBridge.Ecospace
 {

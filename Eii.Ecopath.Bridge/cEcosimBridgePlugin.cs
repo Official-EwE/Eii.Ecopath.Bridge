@@ -1,5 +1,5 @@
-﻿
-using EwEPlugin;
+﻿using EwECore.Plugins;
+using EwECore.Plugins.Ecosim;
 
 namespace EwEBridge.Ecosim
 {
