@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFrameworks>net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -26,7 +25,7 @@
     <None Include="..\EII_plain_128x128.png" Pack="True" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Eii.Ecopath.EwECore" Version="6.7.5" />
+    <PackageReference Include="Eii.Ecopath.EwECore" Version="6.7.*" />
   </ItemGroup>
 
 </Project>
