@@ -1,4 +1,5 @@
-﻿using EwECore.Plugins;
+﻿using EwECore;
+using EwECore.Plugins;
 using EwECore.Plugins.Ecosim;
 
 namespace EwEBridge.Ecosim
@@ -7,7 +8,7 @@ namespace EwEBridge.Ecosim
     /// Simple plug-in hook to allow the Run Console to intercept specific plug-in calls
     /// </summary>
     public class cEcosimBridgePlugin :
-        IEcosimBeginTimestepPlugin, IEcosimBeginTimestepPostPlugin, IEcosimEndTimestepPlugin, IEcosimEndTimestepPostPlugin
+        IEcosimBeginTimestepPlugin, IEcosimBeginTimestepPostPlugin, IEcosimEndTimestepPlugin, IEcosimEndTimestepPostPlugin, IEcosimRunCompletedPlugin
     {
         public const string NAME = "xxxEwESimBridge";
         public enum EventType : int
@@ -16,7 +17,8 @@ namespace EwEBridge.Ecosim
             BeginTimeStep = 1,
             BeginTimeStepPost = 2,
             EndTimeStep = 3,
-            EndTimeStepPost = 4
+            EndTimeStepPost = 4,
+            RunCompleted = 5
         }
 
         public cEcosimBridgePlugin()
@@ -40,7 +42,7 @@ namespace EwEBridge.Ecosim
         }
 
         #region Ecosim integration
-    
+
         void IEcosimBeginTimestepPlugin.EcosimBeginTimeStep(ref float[] BiomassAtTimestep, object EcosimDatastructures, int iTime)
         {
             SendEvent(EventType.BeginTimeStep, iTime);
@@ -61,6 +63,11 @@ namespace EwEBridge.Ecosim
             SendEvent(EventType.EndTimeStepPost, iTime);
         }
 
+        public void EcosimRunCompleted(object EcosimDatastructures)
+        {
+            SendEvent(EventType.RunCompleted, ((cEcosimDatastructures)EcosimDatastructures).NTimes);
+        }
+
         #endregion // Ecosim integration
 
         #region Callback
@@ -70,13 +77,15 @@ namespace EwEBridge.Ecosim
             try
             {
                 if (this.BridgeCallback != null)
-                   this.BridgeCallback(e, iTime);
+                    this.BridgeCallback(e, iTime);
             }
             catch
             {
                 // NOP
             }
         }
+
+
 
         public delegate void BridgeEcosimBeginTimestepPost(EventType e, int iTime);
 
