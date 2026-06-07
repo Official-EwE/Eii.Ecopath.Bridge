@@ -1,3 +1,4 @@
+# EwE Ecosim Modifier
 Its plug-in structure has proven an invaluable asset for extending and customizing the functionality of the Ecopath with Ecosim food web approach. At the time of writing (2025), the plug-in structure offers a much more versatile method to interact with - and to intervene in - the EwE execution than via the EwE API. The downside is that plug-ins execute within the EwE flow, and their capabilities cannot be harnassed when using the EwE API in a scripted environment.
 
 The Bridge plug-in was developed to expose the capabilities offered by plug-ins to scripts that use the EwE API. IT's quite simple actually: the bridge is a plug-in that invokes a user-designated callback function, as follows:
