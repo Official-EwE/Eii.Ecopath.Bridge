@@ -1,22 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFrameworks>net4.8;net10.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>Eii.Ecopath.Bridge</PackageId>
+    <PackageId>Eii.Ecopath.BridgePlugin</PackageId>
     <Authors>EII</Authors>
-    <Description>Ecopath bridge</Description>
-    <Title>The Plugin Bridge for Ecopath</Title>
+    <Description>The Plugin Bridge for Ecopath, proviing plug-in style execution events as function callbacks, enabling in-code handling of plug-in events without having to build a plug-in first. Yay.</Description>
+    <Title>The Plugin Bridge for Ecopath, proviing plug-in style execution events as function callbacks</Title>
     <PackageProjectUrl>https://github.com/Official-EwE/Eii.Ecopath.Bridge</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Official-EwE/Eii.Ecopath.Bridge</RepositoryUrl>
     <PackageReleaseNotes>Updated readme</PackageReleaseNotes>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageLicenseExpression>EUPL 1.2</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <IncludeSymbols>True</IncludeSymbols>
     <Company>EII</Company>
     <PackageIcon>EII_plain_128x128.png</PackageIcon>
+    <Copyright>2025- Ecopath International Initiative</Copyright>
   </PropertyGroup>
 
 
