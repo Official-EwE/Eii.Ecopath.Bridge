@@ -12,7 +12,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Official-EwE/Eii.Ecopath.Bridge</RepositoryUrl>
     <PackageReleaseNotes>Updated readme</PackageReleaseNotes>
-    <PackageLicenseExpression>EUPL 1.2</PackageLicenseExpression>
+    <PackageLicenseExpression>EUPL-1.2</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <IncludeSymbols>True</IncludeSymbols>
     <Company>EII</Company>
