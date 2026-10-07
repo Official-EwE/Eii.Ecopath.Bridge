@@ -1,62 +1,6 @@
-# EwE Ecosim Modifier
-Its plug-in structure has proven an invaluable asset for extending and customizing the functionality of the Ecopath with Ecosim food web approach. At the time of writing (2025), the plug-in structure offers a much more versatile method to interact with - and to intervene in - the EwE execution than via the EwE API. The downside is that plug-ins execute within the EwE flow, and their capabilities cannot be harnassed when using the EwE API in a scripted environment.
+# Ecopath bridge plug-in #
+The EwE API provides a powerful mechanism for orchestrating EwE execution flows, but it operates outside the internal execution of the model. EwE plug-in points, in contrast, allow custom code to intervene at specific stages during model execution. They can be used, for example, to override standard EwE calculations, modify intermediate results, or perform custom calculations within an Ecospace time step. Such interventions cannot be achieved through the regular EwE API alone.
 
-The Bridge plug-in was developed to expose the capabilities offered by plug-ins to scripts that use the EwE API. IT's quite simple actually: the bridge is a plug-in that invokes a user-designated callback function, as follows:
+The EwE Bridge Plug-in was developed to make these internal plug-in points accessible to scripts that use the EwE API. At each supported plug-in point, the Bridge raises an event that can be handled by an external script. This allows scripted workflows to respond to EwE plug-in points during model execution and therefore combine the orchestration capabilities of the EwE API with the deeper integration offered by EwE's native plug-in architecture.
 
-    internal class cEcosimModifier : cRuntimeModifier
-    {
-        public cEcosimModifier(cCore core, cEwEConfiguration config, cEcosimRunInstructions runmodel) : base(core, "ecosim", config, runmodel)
-        {
-            // Find the bridge plug-in
-            IPlugin? pi = GetPlugin(typeof(cEcosimCallbackPluginPoint));
-            // Got it?
-            if (pi != null)
-            {
-                // #es: pipe all ecosim plug-in points to a local callback function. Yay.
-                cEcosimCallbackPluginPoint ppt = (cEcosimCallbackPluginPoint)pi;
-                ppt.BridgeCallback = BridgeCallback;
-            }
-        }
-
-        public override void ConfigureAutosave()
-        {
-            // ToDo
-        }
-
-        public override bool Run()
-        {
-            this.RunSuccess = true;
-            // Go for it
-            this.RunSuccess &= this.Core.RunEcosim();
-            // Done
-            return RunSuccess;
-        }
-
-        // Plug-in callback for making specific modifications.
-        protected void BridgeCallback (cEcosimCallbackPluginPoint.EventType e, int iTime)
-        {
-            if (e== cEcosimCallbackPluginPoint.EventType.BeginTimeStep)
-            {
-                cEcosimDatastructures ds = this.Core.EcosimDataStructures;
-
-                // Print out time tracking
-                if ((iTime - 1) % ds.NumStepsPerYear == 0)
-                {
-                    Console.WriteLine("{0}",
-                        (int) this.Core.EcosimFirstYear() + ((iTime - 1) / ds.NumStepsPerYear));
-                }
-                this.RunSuccess &= this.Apply(iTime);
-            }
-        }
-
-        public IPlugin? GetPlugin(Type t)
-        {
-            cPluginManager pm = this.Core.PluginManager;
-            List<IPlugin> plugins = (List<IPlugin>)pm.GetPlugins(t);
-            if (plugins.Count > 0)
-                return plugins[0];
-            return null;
-        }
-    }
-}
-W
+The Bridge itself contains no modelling logic. Its sole purpose is to expose selected EwE plug-in points as script-accessible events, providing a lightweight connection between the EwE execution engine and externally scripted workflows.
